@@ -19,7 +19,7 @@ def egcd(a, b):
         g, x, y = egcd(b % a, a)
         return (g, y - (b // a) * x, x)
 
-def mulinv(b, n):
+def multiplicative_inverse(b, n):
     g, x, _ = egcd(b, n)
     if g == 1:
         return x % n
@@ -55,7 +55,7 @@ def generate_keys(p, q):
             break
     print "\ne = ", e
     
-    d = mulinv(e, k)
+    d = multiplicative_inverse(e, k)
     print "d = ", d
 
     return ((e, n), (d, n))
